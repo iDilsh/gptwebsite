@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Interactive Robot Face</title>
+    <style>
+        :root {
+            --led-cyan: #00f2ff;
+            --led-white: #ffffff;
+            --bg-color: #050505;
+            --dot-size: 8px;
+        }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--bg-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            touch-action: none;
+            font-family: sans-serif;
+        }
+
+        #stage {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 80px;
+            transition: transform 0.3s ease-out;
+        }
+
+        /* The LED Dot Matrix Overlay Effect */
+        .led-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: radial-gradient(rgba(0, 0, 0, 0.7) 40%, transparent 45%);
+            background-size: var(--dot-size) var(--dot-size);
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .eyes-container {
+            display: flex;
+            gap: 120px;
+            perspective: 1000px;
+        }
+
+        .eye {
+            width: 220px;
+            height: 220px;
+            background: var(--led-cyan);
+            border-radius: 50%;
+            box-shadow: 0 0 40px rgba(0, 242, 255, 0.4);
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.15s ease-out;
+        }
+
+        .pupil {
+            width: 90px;
+            height: 90px;
+            background: var(--bg-color);
+            border-radius: 50%;
+            transition: transform 0.1s ease-out;
+        }
+
+        .mouth {
+            width: 280px;
+            height: 40px;
+            background: var(--led-white);
+            border-radius: 20px 20px 80px 80px;
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Expression States */
+        .blink { height: 10px !important; margin-top: 105px; }
+        .surprised .eye { transform: scale(1.2); }
+        .surprised .mouth { height: 120px; border-radius: 50%; width: 120px; }
+        .happy .mouth { height: 80px; transform: scaleX(1.2); }
+        .annoyed .eye { height: 100px; border-radius: 100px 100px 20px 20px; }
+    </style>
+</head>
+<body>
+
+    <div class="led-grid"></div>
+
+    <div id="stage">
+        <div class="eyes-container">
+            <div class="eye" id="eyeL"><div class="pupil"></div></div>
+            <div class="eye" id="eyeR"><div class="pupil"></div></div>
+        </div>
+        <div class="mouth" id="mouth"></div>
+    </div>
+
+    <script>
+        const stage = document.getElementById('stage');
+        const eyeL = document.getElementById('eyeL');
+        const eyeR = document.getElementById('eyeR');
+        const mouth = document.getElementById('mouth');
+        const pupils = document.querySelectorAll('.pupil');
+
+        let isInteracting = false;
+
+        // --- Autonomous Behavior ---
+        
+        function blink() {
+            if (isInteracting) return;
+            eyeL.classList.add('blink');
+            eyeR.classList.add('blink');
+            setTimeout(() => {
+                eyeL.classList.remove('blink');
+                eyeR.classList.remove('blink');
+            }, 150);
+        }
+
+        function randomLook() {
+            if (isInteracting) return;
+            const x = (Math.random() - 0.5) * 40;
+            const y = (Math.random() - 0.5) * 40;
+            pupils.forEach(p => p.style.transform = `translate(${x}px, ${y}px)`);
+        }
+
+        function randomEmotion() {
+            if (isInteracting) return;
+            const rand = Math.random();
+            if (rand > 0.8) {
+                stage.classList.add('happy');
+                setTimeout(() => stage.classList.remove('happy'), 2000);
+            }
+        }
+
+        // Loops
+        setInterval(() => { if(Math.random() > 0.7) blink(); }, 3000);
+        setInterval(randomLook, 2500);
+        setInterval(randomEmotion, 8000);
+
+        // --- Interactivity (Touch/Mouse) ---
+
+        function handleInteraction(e) {
+            isInteracting = true;
+            stage.classList.add('surprised');
+            
+            // Look at touch point
+            const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+            const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+            
+            const centerX = window.innerWidth / 2;
+            const centerY = window.innerHeight / 2;
+            
+            const moveX = (clientX - centerX) / 15;
+            const moveY = (clientY - centerY) / 15;
+            
+            pupils.forEach(p => p.style.transform = `translate(${moveX}px, ${moveY}px)`);
+            stage.style.transform = `rotate(${(clientX - centerX) / 50}deg)`;
+
+            // Reset after delay
+            clearTimeout(window.interactionTimeout);
+            window.interactionTimeout = setTimeout(() => {
+                stage.classList.remove('surprised');
+                stage.style.transform = `rotate(0deg)`;
+                isInteracting = false;
+            }, 1000);
+        }
+
+        window.addEventListener('mousemove', handleInteraction);
+        window.addEventListener('touchstart', (e) => {
+            handleInteraction(e);
+            e.preventDefault();
+        }, { passive: false });
+
+    </script>
+</body>
+</html>

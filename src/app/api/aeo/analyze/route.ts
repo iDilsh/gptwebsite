@@ -4,8 +4,8 @@ import type { AnalyzeRequest, EngineId } from "@/lib/aeo/types";
 import { rateLimit, getClientIp } from "@/lib/aeo/rate-limit";
 
 export const runtime = "nodejs";
-// The LLM-backed analysis can take a while; allow up to ~5 minutes.
-export const maxDuration = 300;
+// Vercel Hobby plan caps at 10s; Pro at 60s. Set to 60 for compatibility.
+export const maxDuration = 60;
 
 // Rate limit: 20 analysis requests per IP per 10 minutes.
 const RATE_LIMIT = 20;

@@ -81,7 +81,7 @@ export function Hero({ onLaunch }: HeroProps) {
         {/* Heading */}
         <h1 className="aeo-fade-up mt-7 text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
           See how your brand{" "}
-          <span className="aeo-gradient-text">visibility</span> in AI answers
+          <span className="aeo-gradient-text">Visibility</span> in AI answers
         </h1>
 
         {/* Subheading */}
@@ -99,7 +99,7 @@ export function Hero({ onLaunch }: HeroProps) {
             className="aeo-btn-3d h-12 w-full gap-2 rounded-2xl border-0 px-7 text-base text-white sm:w-auto"
           >
             <Radar className="size-4.5" />
-            Run AEO Analysis
+            FREE AEO Analysis
             <ArrowRight className="size-4" />
           </Button>
           <a
@@ -139,7 +139,7 @@ export function Hero({ onLaunch }: HeroProps) {
         </div>
 
         {/* Stats strip */}
-        <div className="aeo-card-3d aeo-fade-up mx-auto mt-12 grid max-w-2xl grid-cols-3 divide-x divide-border/60 overflow-hidden rounded-3xl">
+        <div className="aeo-card-3d aeo-fade-up mx-auto mt-12 grid max-w-2xl grid-cols-3 divide-x divide-border/60 overflow-hidden rounded-xl">
           {[
             { value: "3", label: "AI engines" },
             { value: "3", label: "Score dimensions" },

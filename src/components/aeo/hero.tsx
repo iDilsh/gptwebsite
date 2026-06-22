@@ -86,10 +86,10 @@ export function Hero({ onLaunch }: HeroProps) {
 
         {/* Subheading */}
         <p className="aeo-fade-up mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Measure your visibility across ChatGPT, Perplexity, and Google Gemini. We query the
-          answer engines, extract every brand mention completely Free with
-          sentiment analysis, and score your presence, sentiment, and share of
-          voice.
+          Completely Free Ai visibility analysis tool for your Brand & Website.
+          No signup needed. Download your AEO report as PDF or HTML file. Check
+          Mentioned and cited on ChatGPT, Gemini & perplexity with score and sentiment
+          analysis.
         </p>
 
         {/* CTAs */}

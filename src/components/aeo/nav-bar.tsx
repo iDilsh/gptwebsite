@@ -23,7 +23,7 @@ export function NavBar({ onLaunch }: NavBarProps) {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <nav
-        className="aeo-glass aeo-nav-blur mx-auto flex h-14 max-w-6xl items-center justify-between rounded-2xl px-3 pl-4 shadow-[0_8px_30px_-12px_oklch(0.45_0.14_310/0.25)] sm:px-4"
+        className="aeo-glass aeo-nav-blur mx-auto flex h-24 max-w-8xl items-center justify-between rounded-2xl px-3 pl-4 shadow-[0_8px_30px_-12px_oklch(0.45_0.14_310/0.25)] sm:px-4"
         style={{
           backgroundColor: "rgb(255 255 255 / 0.55)",
           backdropFilter: "blur(28px) saturate(180%)",
@@ -35,7 +35,7 @@ export function NavBar({ onLaunch }: NavBarProps) {
           <span className="relative flex size-8 items-center justify-center rounded-xl shadow-[0_4px_12px_-2px_oklch(0.5_0.2_300/0.5)]">
             <BrandImage
               src="/images/brand/logo.png"
-              alt="AEOScope logo"
+              alt="AEO analysis logo"
               className="size-8 rounded-xl"
               imgClassName="rounded-xl"
               fallback={
@@ -47,7 +47,7 @@ export function NavBar({ onLaunch }: NavBarProps) {
           </span>
           <span className="flex flex-col leading-none">
             <span className="text-sm font-bold tracking-tight text-foreground">
-              AEO<span className="aeo-gradient-text">Scope</span>
+              FREE <span className="aeo-gradient-text">AEO</span>
             </span>
             <span className="hidden text-[10px] font-medium text-muted-foreground sm:block">
               Visibility Checker
@@ -57,7 +57,7 @@ export function NavBar({ onLaunch }: NavBarProps) {
 
         {/* Desktop links */}
         <div className="hidden items-center gap-1 md:flex">
-          {NAV_LINKS.map((l) => (
+          {NAV_LINKS.map((l) => ( 
             <a
               key={l.href}
               href={l.href}

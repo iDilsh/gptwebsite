@@ -81,13 +81,13 @@ export function Hero({ onLaunch }: HeroProps) {
         {/* Heading */}
         <h1 className="aeo-fade-up mt-7 text-balance text-5xl font-extrabold leading-[1.05] tracking-tight text-foreground sm:text-6xl lg:text-7xl">
           See how your brand{" "}
-          <span className="aeo-gradient-text">shows up</span> in AI answers
+          <span className="aeo-gradient-text">visibility</span> in AI answers
         </h1>
 
         {/* Subheading */}
         <p className="aeo-fade-up mx-auto mt-6 max-w-xl text-pretty text-base leading-relaxed text-muted-foreground sm:text-lg">
           Measure your visibility across ChatGPT, Perplexity, and Google Gemini. We query the
-          answer engines, extract every brand mention with transformer-based
+          answer engines, extract every brand mention completely Free with
           sentiment analysis, and score your presence, sentiment, and share of
           voice.
         </p>
@@ -108,7 +108,6 @@ export function Hero({ onLaunch }: HeroProps) {
             rel="noopener noreferrer"
             className="aeo-card-soft inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl px-6 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5 sm:w-auto"
           >
-            <Sparkles className="size-4 text-primary" />
             Full AEO / GEO Analysis
             <ExternalLink className="size-3.5 text-muted-foreground" />
           </a>

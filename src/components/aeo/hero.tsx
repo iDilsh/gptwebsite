@@ -106,7 +106,7 @@ export function Hero({ onLaunch }: HeroProps) {
             href={FULL_ANALYSIS_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="aeo-card-soft inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl px-6 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5 sm:w-auto"
+            className="aeo-card-soft inline-flex h-12 w-full items-center justify-center gap-2 rounded-lg px-6 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5 sm:w-auto"
           >
             Full AEO / GEO Analysis
             <ExternalLink className="size-3.5 text-muted-foreground" />

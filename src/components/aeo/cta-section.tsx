@@ -200,11 +200,11 @@ export function CtaSection() {
       <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2 md:gap-6">
         <PriceCard
           theme="crimson"
-          icon={<Sparkles className="size-4.5" />}
+          icon={<Crown className="size-4.5" />}
           highlight="Best value"
-          planName="Full Audit"
+          planName="Full Humanized Audit"
           price="10"
-          billing="One-time audit, delivered in 3 business days"
+          billing="One-time audit, delivered in 24 hours"
           features={[
             "Visibility audit across ChatGPT, Perplexity & Gemini",
             "SEO + GEO cross-check with keyword gaps",
@@ -219,7 +219,7 @@ export function CtaSection() {
           highlight="Most popular"
           planName="Done-for-you"
           price="35"
-          billing="Per month, ongoing optimization & monitoring"
+          billing="One Time, ongoing optimization & monitoring"
           features={[
             "Structured data & schema implementation",
             "Content tuning for citation-worthy answers",

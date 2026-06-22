@@ -180,7 +180,7 @@ export function ConfigPanel({
                   "disabled:cursor-not-allowed disabled:opacity-50",
                 )}
               >
-                <play className="size-2 text-red-500" />
+                <Wand2 className="size-2 text-red-500" />
                 {ex.label}
               </button>
             ))}

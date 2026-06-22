@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Sparkles, Play, RotateCcw, Wand2, Globe, Tag, MessageSquareText } from "lucide-react";
+import { Radar, corner-down-right, Sparkles, Play, RotateCcw, Wand2, Globe, Tag, MessageSquareText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ConfigPanelProps {
@@ -82,7 +82,7 @@ export function ConfigPanel({
       {/* Header */}
       <div className="mb-5 flex items-center gap-3">
         <span className="aeo-gradient-pill flex size-9 items-center justify-center rounded-xl text-white shadow-[0_6px_16px_-4px_oklch(0.55_0.22_27/0.5)]">
-          <Redar className="size-4.5" />
+          <Radar className="size-4.5" />
         </span>
         <div>
           <h2 className="text-base font-bold tracking-tight text-foreground">Analysis setup</h2>
@@ -180,7 +180,7 @@ export function ConfigPanel({
                   "disabled:cursor-not-allowed disabled:opacity-50",
                 )}
               >
-                <Wand2 className="size-2 text-red-500" />
+                <corner-down-right className="size-2 text-red-500" />
                 {ex.label}
               </button>
             ))}
@@ -210,7 +210,7 @@ export function ConfigPanel({
         </div>
       </div>
 
-      <p className="mt-4 rounded-xl bg-red-500/5 p-3 text-[11px] leading-relaxed text-muted-foreground ring-1 ring-red-500/10">
+      <p className="mt-4 rounded-lg bg-red-500/5 p-3 text-[11px] leading-relaxed text-muted-foreground ring-1 ring-red-500/10">
         Queries <span className="font-semibold text-foreground">ChatGPT</span>,{" "}
         <span className="font-semibold text-foreground">Perplexity</span>, and{" "}
         <span className="font-semibold text-foreground">Gemini</span> in parallel, then runs

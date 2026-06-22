@@ -170,7 +170,7 @@ function PriceCard({
             className="mt-7 inline-flex h-12 w-full items-center justify-center gap-2 rounded-xl text-sm font-bold text-white transition-all hover:-translate-y-0.5 hover:opacity-95"
             style={{ background: t.buttonBg, boxShadow: t.buttonShadow }}
           >
-            Get started
+            View more
             <ArrowRight className="size-4" />
             <ExternalLink className="size-3.5 opacity-60" />
           </a>
@@ -188,7 +188,7 @@ export function CtaSection() {
           Ready for the next step?
         </p>
         <h2 className="mx-auto mt-2 max-w-2xl text-balance text-2xl font-bold tracking-tight text-foreground sm:text-3xl">
-          Go beyond the free scan — own your AI visibility
+          Go beyond the free scan — All AI services in one place!
         </h2>
         <p className="mx-auto mt-3 max-w-xl text-sm leading-relaxed text-muted-foreground">
           You&apos;ve seen your score. Now turn it into a strategy with a full audit or a
@@ -203,13 +203,13 @@ export function CtaSection() {
           icon={<Crown className="size-4.5" />}
           highlight="Best value"
           planName="Full Humanized Audit"
-          price="10"
-          billing="One-time audit, delivered in 24 hours"
+          price="12"
+          billing="Detailed audit report, delivered in 24 hours"
           features={[
-            "Visibility audit across ChatGPT, Perplexity & Gemini",
+            "Visibility audit across All Ai Engines & Models",
             "SEO + GEO cross-check with keyword gaps",
             "Sentiment & share-of-voice breakdown",
-            "Prioritized 90-day action plan",
+            "Prioritized 90-day action plan & Free Prompt guide",
             "Competitor benchmarking report",
           ]}
         />
@@ -217,15 +217,15 @@ export function CtaSection() {
           theme="midnight"
           icon={<Crown className="size-4.5" />}
           highlight="Most popular"
-          planName="Done-for-you"
-          price="35"
-          billing="One Time, ongoing optimization & monitoring"
+          planName="All Ai Services"
+          price="25 +"
+          billing="One Time Payment, AEO optimization & Ai Services"
           features={[
             "Structured data & schema implementation",
             "Content tuning for citation-worthy answers",
             "Citation building on trusted sources",
-            "Monthly AEO monitoring & reporting",
-            "Dedicated AEO specialist",
+            "Ai Chat Bot & Ai Tool Integration",
+            "Help for Ai powered Brand building",
           ]}
         />
       </div>

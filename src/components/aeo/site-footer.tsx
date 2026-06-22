@@ -31,7 +31,7 @@ export function SiteFooter({ tagline = "Powered by transformer-based sentiment a
             <span className="aeo-gradient-pill flex size-6 items-center justify-center rounded-lg text-white">
               <Radar className="size-3.5" />
             </span>
-            AEOScope · {tagline}
+            FREE AEO - by iDilsh.Top
           </p>
           <nav className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 text-xs text-muted-foreground">
             {FOOTER_LINKS.map((l) => (
@@ -49,7 +49,7 @@ export function SiteFooter({ tagline = "Powered by transformer-based sentiment a
           </nav>
         </div>
         <p className="mt-4 text-center text-[11px] text-muted-foreground/70 sm:text-left">
-          © {new Date().getFullYear()} AEOScope. All rights reserved.
+          © {new Date().getFullYear()} FREE AEO. All rights reserved.
         </p>
       </div>
     </footer>

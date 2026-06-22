@@ -87,21 +87,18 @@ export default function Home() {
               icon: Search,
               title: "1. Query the engines",
               desc: "Your brand, website, and prompt are sent to ChatGPT, Perplexity, and Gemini in parallel to retrieve real AI answers.",
-              accent: "from-red-500 to-rose-500",
             },
             {
               img: "/images/steps/step-2-analyze.png",
               icon: Smile,
               title: "2. Analyze mentions",
               desc: "A transformer model extracts every brand mention and classifies the sentiment of each surrounding sentence.",
-              accent: "from-emerald-500 to-teal-500",
             },
             {
               img: "/images/steps/step-3-score.png",
               icon: PieChart,
               title: "3. Score visibility",
               desc: "Presence, sentiment, and share of voice are combined into a single AEO visibility score out of 100.",
-              accent: "from-amber-500 to-orange-500",
             },
           ].map((s) => (
             <div
@@ -164,22 +161,7 @@ export default function Home() {
         </div>
 
         {/* Engines strip */}
-        <div id="engines" className="mt-6 flex flex-wrap items-center justify-center gap-3">
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Sparkles className="size-3.5 text-primary" />
-            Powered by z-ai-web-dev-sdk
-          </span>
-          <span className="text-border">·</span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Bot className="size-3.5 text-primary" /> ChatGPT
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Search className="size-3.5 text-primary" /> Perplexity
-          </span>
-          <span className="inline-flex items-center gap-1.5 text-xs text-muted-foreground">
-            <Sparkles className="size-3.5 text-primary" /> Gemini
-          </span>
-        </div>
+        
       </section>
 
       {/* Home FAQ */}

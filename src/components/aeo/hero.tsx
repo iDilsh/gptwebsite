@@ -108,7 +108,7 @@ export function Hero({ onLaunch }: HeroProps) {
             rel="noopener noreferrer"
             className="aeo-card-soft inline-flex h-12 w-full items-center justify-center gap-2 rounded-2xl px-6 text-sm font-semibold text-foreground transition-transform hover:-translate-y-0.5 sm:w-auto"
           >
-            Pro AEO / GEO Services
+            Full AEO / GEO Analysis
             <ExternalLink className="size-3.5 text-muted-foreground" />
           </a>
         </div>

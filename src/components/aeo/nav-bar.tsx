@@ -23,7 +23,7 @@ export function NavBar({ onLaunch }: NavBarProps) {
   return (
     <header className="sticky top-0 z-50 px-3 pt-3 sm:px-5 sm:pt-4">
       <nav
-        className="aeo-glass aeo-nav-blur mx-auto flex h-24 max-w-8xl items-center justify-between rounded-2xl px-3 pl-4 shadow-[0_8px_30px_-12px_oklch(0.45_0.14_310/0.25)] sm:px-4"
+        className="aeo-glass aeo-nav-blur mx-auto flex h-20 max-w-7xl items-center justify-between rounded-2xl px-3 pl-4 shadow-[0_8px_30px_-12px_oklch(0.45_0.14_310/0.25)] sm:px-4"
         style={{
           backgroundColor: "rgb(255 255 255 / 0.55)",
           backdropFilter: "blur(28px) saturate(180%)",

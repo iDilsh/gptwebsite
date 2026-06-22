@@ -82,7 +82,7 @@ export function ConfigPanel({
       {/* Header */}
       <div className="mb-5 flex items-center gap-3">
         <span className="aeo-gradient-pill flex size-9 items-center justify-center rounded-xl text-white shadow-[0_6px_16px_-4px_oklch(0.55_0.22_27/0.5)]">
-          <Sparkles className="size-4.5" />
+          <Redar className="size-4.5" />
         </span>
         <div>
           <h2 className="text-base font-bold tracking-tight text-foreground">Analysis setup</h2>
@@ -95,7 +95,7 @@ export function ConfigPanel({
         {/* Brand name */}
         <div className="space-y-1.5">
           <Label htmlFor="brand" className="text-[11px] font-semibold uppercase tracking-wider text-muted-foreground">
-            Target brand
+            Brand name
           </Label>
           <FieldShell icon={<Tag className="size-4" />}>
             <Input
@@ -141,7 +141,7 @@ export function ConfigPanel({
           <FieldShell icon={<MessageSquareText className="size-4" />}>
             <Textarea
               id="query"
-              placeholder="e.g. What is the best CRM for small businesses? (leave blank to auto-detect)"
+              placeholder="e.g. What is the best CRM for small businesses?"
               value={query}
               onChange={(e) => onQueryChange(e.target.value)}
               rows={1}
@@ -180,7 +180,7 @@ export function ConfigPanel({
                   "disabled:cursor-not-allowed disabled:opacity-50",
                 )}
               >
-                <Wand2 className="size-3 text-red-500" />
+                <Wand2 className="size-2 text-red-500" />
                 {ex.label}
               </button>
             ))}

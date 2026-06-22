@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
-import { Radar, corner-down-right, Sparkles, Play, RotateCcw, Wand2, Globe, Tag, MessageSquareText } from "lucide-react";
+import { Radar, Sparkles, Play, RotateCcw, Wand2, Globe, Tag, MessageSquareText } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 interface ConfigPanelProps {
@@ -180,7 +180,7 @@ export function ConfigPanel({
                   "disabled:cursor-not-allowed disabled:opacity-50",
                 )}
               >
-                <corner-down-right className="size-2 text-red-500" />
+                <play className="size-2 text-red-500" />
                 {ex.label}
               </button>
             ))}

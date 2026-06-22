@@ -19,8 +19,8 @@ const SITE_URL = "https://wwww.idilshnet.top";
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "AEOScope — AEO Visibility Checker | ChatGPT, Perplexity & Gemini",
-    template: "%s | AEOScope",
+    default: "Free AEO — AEO Visibility Checker | ChatGPT, Perplexity & Gemini",
+    template: "%s | iDilsh AEO",
   },
   description:
     "Free AEO visibility checker. See how your brand shows up in ChatGPT, Perplexity, and Google Gemini answers. Get your presence, sentiment, and share-of-voice score in seconds.",

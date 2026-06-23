@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 
 // ⬇️ CHANGE THIS to your deployed domain
-const SITE_URL = "https://idilsh.top";
+const SITE_URL = "https://aeotool.top";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();

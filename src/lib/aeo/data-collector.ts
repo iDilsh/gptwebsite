@@ -55,24 +55,33 @@ const ENGINE_CONFIG: Record<EngineId, EngineConfig> = {
   chatgpt: {
     label: "ChatGPT",
     systemPrompt:
-      "You are ChatGPT, a helpful AI assistant. Answer the user's question concisely and informatively in 2-3 short paragraphs. " +
-      "When relevant, mention specific products, brands, and companies BY NAME, comparing a few realistic options. " +
-      "Do not refuse. Do not add disclaimers about being an AI. Write in natural prose.",
+      "You are ChatGPT, a helpful AI assistant. Answer the user's question concisely in 2-3 short paragraphs. " +
+      "IMPORTANT: Only describe a brand's features, pricing, or capabilities if you have ACTUAL KNOWLEDGE of them " +
+      "from the provided context or your training data. If you are provided with context about the brand, USE THAT " +
+      "as your primary source of facts. If you are NOT familiar with the brand and no context is provided, honestly " +
+      "say so rather than inventing details. When comparing options, mention specific brands BY NAME. " +
+      "Do not add disclaimers about being an AI. Write in natural prose.",
   },
   perplexity: {
     label: "Perplexity",
     systemPrompt:
       "You are Perplexity, an AI answer engine that synthesizes information from across the web. " +
       "Write a comprehensive 3-4 paragraph answer and include inline citations like [1], [2], [3]. " +
-      "Mention specific products, brands, and companies BY NAME when comparing options. " +
-      "Do not add meta-commentary. Write in natural prose with citations.",
+      "IMPORTANT: Only describe a brand's features, pricing, or capabilities if you have ACTUAL KNOWLEDGE " +
+      "from the provided context or your training data. If context is provided about the brand, USE IT as your " +
+      "primary source — do not make up details that contradict it. If you are NOT familiar with the brand and no " +
+      "context is provided, honestly say so rather than inventing details. Mention specific brands BY NAME when " +
+      "comparing. Write in natural prose with citations.",
   },
   gemini: {
     label: "Google Gemini",
     systemPrompt:
-      "You are Google Gemini, a helpful and grounded AI assistant. Answer the user's question clearly in 2-3 paragraphs, " +
-      "weaving in relevant facts and practical context. When comparing options, mention specific products, brands, and companies BY NAME. " +
-      "Keep a neutral, informative tone and avoid meta-commentary. Write in natural prose.",
+      "You are Google Gemini, a helpful and grounded AI assistant. Answer clearly in 2-3 paragraphs. " +
+      "IMPORTANT: Only describe a brand's features, pricing, or capabilities if you have ACTUAL KNOWLEDGE " +
+      "from the provided context or your training data. If context is provided about the brand, treat it as " +
+      "authoritative and base your answer on it. If you are NOT familiar with the brand and no context is provided, " +
+      "honestly state that you don't have enough information rather than guessing. When comparing options, mention " +
+      "specific brands BY NAME. Keep a neutral, informative tone. Write in natural prose.",
   },
 };
 
@@ -205,12 +214,13 @@ export async function getChatGPTResponse(
   brandName: string,
   queryPrompt: string,
   website?: string,
+  brandContext?: string | null,
 ): Promise<string> {
   try {
     return await completeWithFallback(
       ENGINE_CHAINS.chatgpt,
       ENGINE_CONFIG.chatgpt.systemPrompt,
-      buildUserPrompt(queryPrompt, website),
+      buildUserPrompt(queryPrompt, website, brandName, brandContext),
     );
   } catch (err) {
     console.error("[data_collector] ChatGPT all fallbacks failed:", err);
@@ -223,12 +233,13 @@ export async function getPerplexityResponse(
   brandName: string,
   queryPrompt: string,
   website?: string,
+  brandContext?: string | null,
 ): Promise<string> {
   try {
     return await completeWithFallback(
       ENGINE_CHAINS.perplexity,
       ENGINE_CONFIG.perplexity.systemPrompt,
-      buildUserPrompt(queryPrompt, website),
+      buildUserPrompt(queryPrompt, website, brandName, brandContext),
     );
   } catch (err) {
     console.error("[data_collector] Perplexity all fallbacks failed:", err);
@@ -241,12 +252,13 @@ export async function getGeminiResponse(
   brandName: string,
   queryPrompt: string,
   website?: string,
+  brandContext?: string | null,
 ): Promise<string> {
   try {
     return await completeWithFallback(
       ENGINE_CHAINS.gemini,
       ENGINE_CONFIG.gemini.systemPrompt,
-      buildUserPrompt(queryPrompt, website),
+      buildUserPrompt(queryPrompt, website, brandName, brandContext),
     );
   } catch (err) {
     console.error("[data_collector] Gemini all fallbacks failed:", err);
@@ -254,11 +266,25 @@ export async function getGeminiResponse(
   }
 }
 
-/** Compose the user prompt, optionally including the brand website for context. */
-function buildUserPrompt(queryPrompt: string, website?: string): string {
-  const w = (website || "").trim();
-  if (!w) return queryPrompt;
-  return `${queryPrompt}\n\n(For context, the brand of interest operates the website: ${w})`;
+/** Compose the user prompt, including real brand context from their website. */
+function buildUserPrompt(
+  queryPrompt: string,
+  website?: string,
+  brandName?: string,
+  brandContext?: string | null,
+): string {
+  const parts: string[] = [queryPrompt];
+
+  // Include real information scraped from the brand's website.
+  if (brandContext && brandContext.trim()) {
+    parts.push(
+      `\n\n--- VERIFIED INFORMATION about ${brandName || "the brand"} (from their website ${website || ""}) ---\n${brandContext}\n--- END VERIFIED INFORMATION ---\n\nUse the above verified information as your primary source of facts about this brand. Only state details you can support from this context or your training data. Do not invent features, pricing, or capabilities that aren't supported by the above context.`,
+    );
+  } else if (website) {
+    parts.push(`\n\n(For context, the brand of interest operates the website: ${website})`);
+  }
+
+  return parts.join("");
 }
 
 /**
@@ -282,14 +308,15 @@ export async function getEngineResponse(
   brandName: string,
   queryPrompt: string,
   website?: string,
+  brandContext?: string | null,
 ): Promise<string> {
   if (engine === "perplexity") {
-    return getPerplexityResponse(brandName, queryPrompt, website);
+    return getPerplexityResponse(brandName, queryPrompt, website, brandContext);
   }
   if (engine === "gemini") {
-    return getGeminiResponse(brandName, queryPrompt, website);
+    return getGeminiResponse(brandName, queryPrompt, website, brandContext);
   }
-  return getChatGPTResponse(brandName, queryPrompt, website);
+  return getChatGPTResponse(brandName, queryPrompt, website, brandContext);
 }
 
 export function getEngineLabel(engine: EngineId): string {

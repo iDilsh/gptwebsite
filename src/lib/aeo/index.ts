@@ -3,7 +3,30 @@
 import { getEngineResponse, getEngineLabel, synthesizeQuery } from "./data-collector";
 import { extractMentions, analyzeSentiment, stripMarkdown } from "./ml-analyzer";
 import { buildSentimentBreakdown, calculateAeoScore } from "./scoring";
+import { fetchBrandContext } from "./brand-context";
 import type { EngineAnalysis, EngineId } from "./types";
+
+// Cache brand context per-request so all 3 engines share the same fetch.
+// Keyed by website URL; expires after 5 minutes.
+const contextCache = new Map<string, { text: string | null; fetchedAt: number }>();
+const CONTEXT_TTL = 5 * 60 * 1000;
+
+async function getBrandContext(
+  brand: string,
+  website?: string,
+): Promise<string | null> {
+  const url = (website || "").trim();
+  if (!url) return null;
+
+  const cached = contextCache.get(url);
+  if (cached && Date.now() - cached.fetchedAt < CONTEXT_TTL) {
+    return cached.text;
+  }
+
+  const text = await fetchBrandContext(brand, website);
+  contextCache.set(url, { text, fetchedAt: Date.now() });
+  return text;
+}
 
 export async function runEngineAnalysis(
   engine: EngineId,
@@ -14,12 +37,17 @@ export async function runEngineAnalysis(
   const started = Date.now();
   const engineLabel = getEngineLabel(engine);
 
-  // If no description was provided, synthesize a discovery prompt from the
-  // brand name + website so the analysis can run from brand + website alone.
+  // If no description was provided, synthesize a discovery prompt.
   const effectiveQuery = (query && query.trim()) || synthesizeQuery(brand, website);
 
-  // 1. Collect the AI answer, then strip markdown so it renders as prose.
-  const rawText = stripMarkdown(await getEngineResponse(engine, brand, effectiveQuery, website));
+  // 0. Fetch REAL information from the brand's website so the LLM has
+  //    actual facts instead of hallucinating. Cached per-website.
+  const brandContext = await getBrandContext(brand, website);
+
+  // 1. Collect the AI answer (with real brand context), strip markdown.
+  const rawText = stripMarkdown(
+    await getEngineResponse(engine, brand, effectiveQuery, website, brandContext),
+  );
 
   // 2. Extract brand mentions (regex) + run neural sentiment analysis.
   const { sentences: extracted, mentionCount } = extractMentions(rawText, brand);

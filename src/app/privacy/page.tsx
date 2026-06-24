@@ -1,9 +1,9 @@
 import { LegalPage, Bullet } from "@/components/aeo/legal-page";
 
 export const metadata = {
-  title: "Privacy Policy — AEOScope",
+  title: "Privacy Policy — Free AEO",
   description:
-    "How AEOScope handles your data when you run an AEO visibility analysis.",
+    "Learn how Free AEO handles analysis data, AI visibility reports, and user privacy when using the free AEO visibility checker.",
 };
 
 export default function PrivacyPage() {
@@ -11,79 +11,122 @@ export default function PrivacyPage() {
     <LegalPage
       eyebrow="Privacy Policy"
       title="Privacy Policy"
-      description="Last updated: January 2025. This policy explains what data AEOScope collects, how it's used, and the choices you have."
+      description="Last updated: June 2026. This Privacy Policy explains what information Free AEO (aeotool.top) collects, how it is used, and the choices available to users."
     >
       <h2>1. Information we collect</h2>
       <p>
-        When you run an analysis, AEOScope receives the inputs you provide: a brand name, an
-        optional brand website, and an optional description/query. These are sent to our backend
-        to generate the analysis. We do not require an account and we do not collect personal
-        identifying information for the free analyzer.
+        Free AEO (aeotool.top) is designed to provide AI visibility analysis without requiring
+        user registration. When you run an analysis, we receive the information you voluntarily
+        provide, including your brand name, website URL, and optional query or description.
+      </p>
+
+      <p>
+        The free analyzer does not require accounts, passwords, or personal profile information.
+        Unless you intentionally provide personal details through our contact forms or paid
+        services, we do not collect personally identifiable information.
       </p>
 
       <h2>2. How we use your data</h2>
       <ul>
-        <Bullet>To generate the AEO visibility analysis you requested</Bullet>
-        <Bullet>To query the underlying AI models that produce the answers</Bullet>
-        <Bullet>To display results in your browser session</Bullet>
+        <Bullet>To generate the AEO visibility analysis you request</Bullet>
+        <Bullet>To query supported AI models and answer engines</Bullet>
+        <Bullet>To calculate visibility scores and sentiment insights</Bullet>
+        <Bullet>To display results during your current browser session</Bullet>
+        <Bullet>To respond to support requests and paid service inquiries</Bullet>
       </ul>
+
       <p>
-        We do not use your analysis inputs to train models, sell to third parties, or build
-        advertising profiles.
+        Free AEO does not sell user information, create advertising profiles, or use submitted
+        analysis data for marketing purposes.
       </p>
 
       <h2>3. Data storage and retention</h2>
       <p>
-        Analysis inputs and results are processed in your current browser session and are not
-        persisted to a database by the free analyzer. If you contact us or purchase a paid audit,
-        we retain the information you share for as long as needed to deliver the service and
-        respond to your request.
+        The free AEO visibility checker is designed with minimal data retention. Analysis inputs
+        and generated results are processed for the requested analysis and are not permanently
+        stored by the free analyzer.
+      </p>
+
+      <p>
+        Information submitted through contact requests, audit purchases, or service inquiries may
+        be retained only for the time necessary to provide support, fulfill services, maintain
+        records, or comply with applicable legal obligations.
       </p>
 
       <h2>4. Third-party services</h2>
       <p>
-        AEOScope uses a large language model backend (z-ai-web-dev-sdk) to generate the AI answers
-        and perform sentiment analysis. Your brand name, website, and description are sent to
-        this backend to produce your analysis. We do not share your data with advertising or
-        analytics networks.
+        Free AEO relies on external AI infrastructure and technology providers to process analysis
+        requests and generate AI visibility reports. Depending on availability, analysis requests
+        may be routed through supported AI model providers and APIs.
+      </p>
+
+      <p>
+        Information required to perform an analysis, such as your brand name, website address,
+        and query, may be transmitted securely to these providers solely for generating the
+        requested results.
+      </p>
+
+      <p>
+        We do not share user data with advertising networks or sell information to third parties.
       </p>
 
       <h2>5. Cookies</h2>
       <p>
-        The free analyzer does not use tracking cookies. The site may use essential technical
-        storage required to function (such as remembering your theme preference).
+        Free AEO does not use advertising cookies or behavioral tracking technologies. Limited
+        browser storage or essential cookies may be used to support core website functionality,
+        such as interface preferences and theme settings.
       </p>
 
       <h2>6. Your rights</h2>
       <p>
-        You can run the analyzer without providing any personal information. If you have
-        contacted us and want your information deleted, email us at{" "}
-        <a href="mailto:hello@idilsh.top" className="font-semibold text-primary hover:underline">
+        You may use the free analyzer without creating an account. If you previously contacted us
+        or submitted information related to a paid service and wish to request deletion of that
+        information, you may contact us at{" "}
+        <a
+          href="mailto:hello@idilsh.top"
+          className="font-semibold text-primary hover:underline"
+        >
           hello@idilsh.top
-        </a>{" "}
-        and we will remove it.
+        </a>
+        .
+      </p>
+
+      <p>
+        Subject to applicable laws, we will review and process reasonable privacy-related requests.
       </p>
 
       <h2>7. Children&apos;s privacy</h2>
       <p>
-        AEOScope is not directed at children under 13 and we do not knowingly collect information
-        from them.
+        Free AEO is intended for business owners, marketers, agencies, and website operators.
+        The service is not directed toward children under the age of 13, and we do not knowingly
+        collect personal information from children.
       </p>
 
       <h2>8. Changes to this policy</h2>
       <p>
-        We may update this policy as the product evolves. Material changes will be reflected by
-        updating the &quot;last updated&quot; date at the top of this page.
+        We may update this Privacy Policy from time to time as Free AEO evolves, introduces new
+        features, or adjusts its services. Any material changes will be reflected by updating the
+        "Last updated" date shown at the top of this page.
       </p>
 
       <h2>9. Contact</h2>
       <p>
-        Questions about privacy? Reach us via the{" "}
-        <a href="/contact" className="font-semibold text-primary hover:underline">contact page</a>{" "}
+        If you have questions regarding this Privacy Policy, AI visibility reports, Answer Engine
+        Optimization services, or your information, please visit our{" "}
+        <a
+          href="/contact"
+          className="font-semibold text-primary hover:underline"
+        >
+          contact page
+        </a>{" "}
         or email{" "}
-        <a href="mailto:hello@idilsh.top" className="font-semibold text-primary hover:underline">
+        <a
+          href="mailto:hello@idilsh.top"
+          className="font-semibold text-primary hover:underline"
+        >
           hello@idilsh.top
-        </a>.
+        </a>
+        .
       </p>
     </LegalPage>
   );

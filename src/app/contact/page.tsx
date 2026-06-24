@@ -43,7 +43,7 @@ export default function ContactPage() {
               href="mailto:hello@idilsh.top"
               className="mt-2 inline-block text-sm font-semibold text-primary hover:underline"
             >
-              hello@idilsh.top
+              hello@aeotool.top
             </a>
           </div>
 

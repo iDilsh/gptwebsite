@@ -13,17 +13,17 @@ const geistMono = Geist_Mono({
   subsets: ["latin"],
 });
 
-// ⬇️ CHANGE THIS to your deployed domain (e.g. "https://aeoscope.com")
-const SITE_URL = "https://wwww.idilshnet.top";
+// ⬇️ CHANGE THIS to your deployed domain
+const SITE_URL = "https://wwww.aeotool.top";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Free AEO — AEO Visibility Checker | ChatGPT, Perplexity & Gemini",
-    template: "%s | iDilsh AEO",
+    default: "Free AEO — Ai Visibility Checker | ChatGPT, Perplexity & Gemini",
+    template: "%s | Free AEO",
   },
   description:
-    "Free AEO visibility checker. See how your brand shows up in ChatGPT, Perplexity, and Google Gemini answers. Get your presence, sentiment, and share-of-voice score in seconds.",
+    "Free AEO visibility checker. Check your brand visibility in ChatGPT, Google Gemini, and Perplexity. Get AI mention analysis, sentiment insights, and a visibility score.",
   keywords: [
     "AEO",
     "Answer Engine Optimization",
@@ -37,8 +37,8 @@ export const metadata: Metadata = {
     "sentiment analysis",
     "AI search optimization",
   ],
-  authors: [{ name: "AEOScope" }],
-  creator: "AEOScope",
+  authors: [{ name: "Free AEO" }],
+  creator: "FREE AEO",
   // Favicon — drop your own icon files in /public (see instructions below).
   // Next.js auto-detects /public/favicon.ico and /public/icon.png.
   icons: {
@@ -50,11 +50,11 @@ export const metadata: Metadata = {
   },
   // Open Graph — what shows when someone shares your link on social media
   openGraph: {
-    title: "AEOScope — AEO Visibility Checker",
+    title: "Free AEO — Ai Visibility Checker",
     description:
       "Measure your brand's visibility across ChatGPT, Perplexity, and Google Gemini. Free AEO analysis with sentiment scoring.",
     url: SITE_URL,
-    siteName: "AEOScope",
+    siteName: "Free AEO",
     type: "website",
     locale: "en_US",
     images: [
@@ -62,14 +62,14 @@ export const metadata: Metadata = {
         url: "/og-image.png",
         width: 1200,
         height: 630,
-        alt: "AEOScope — AEO Visibility Checker",
+        alt: "AEO TOOL — Ai Visibility Checker",
       },
     ],
   },
   // Twitter Card — what shows when shared on Twitter/X
   twitter: {
     card: "summary_large_image",
-    title: "AEOScope — AEO Visibility Checker",
+    title: "Free AEO — Ai Visibility Checker",
     description:
       "Measure your brand's visibility across ChatGPT, Perplexity, and Google Gemini. Free AEO analysis.",
     images: ["/og-image.png"],

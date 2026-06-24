@@ -2,9 +2,9 @@ import { LegalPage, Bullet } from "@/components/aeo/legal-page";
 import { Radar, Target, Eye, Users } from "lucide-react";
 
 export const metadata = {
-  title: "About Us — AEOScope",
+  title: "About Us — Free AEO",
   description:
-    "AEOScope helps brands measure and improve their visibility across AI answer engines — ChatGPT, Perplexity, and Google Gemini.",
+    "Check your brand visibility in ChatGPT, Google Gemini, and Perplexity with a free AEO visibility checker. Get AI mention analysis, sentiment insights, and a visibility score.",
 };
 
 export default function AboutPage() {
@@ -12,20 +12,20 @@ export default function AboutPage() {
     <LegalPage
       eyebrow="About Us"
       title="We measure what AI says about your brand"
-      description="AEOScope is built for the generative search era — when customers ask ChatGPT, Perplexity, and Gemini for recommendations before they ever visit a search results page."
+      description="Check your brand visibility in ChatGPT, Google Gemini, and Perplexity with a free AEO visibility checker. Get AI mention analysis, sentiment insights, and a visibility score."
     >
       <h2>Our mission</h2>
       <p>
         As AI answer engines reshape how people discover products and services, traditional SEO
         rankings no longer tell the whole story. A brand can rank well on Google and still be
-        invisible inside the AI answers that increasingly replace the results page. AEOScope
+        invisible inside the AI answers that increasingly replace the results page. Free AEO
         exists to close that gap — giving every brand a clear, measurable view of how it shows up
         across the three major answer engines.
       </p>
 
       <h2>What we do</h2>
       <p>
-        AEOScope queries ChatGPT, Perplexity, and Google Gemini with your brand and description,
+        Free AEO queries ChatGPT, Perplexity, and Google Gemini with your brand and description,
         then analyzes every response with transformer-based sentiment analysis. We score your
         visibility on three dimensions — presence, sentiment, and share of voice — and combine
         them into a single AEO visibility score out of 100.

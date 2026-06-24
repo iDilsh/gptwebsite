@@ -77,7 +77,7 @@ export default function BlogPage() {
         <div className="mx-auto max-w-3xl text-center">
           <div className="aeo-fade-up aeo-card-soft inline-flex items-center gap-2 rounded-full px-4 py-2 text-xs font-semibold text-foreground/80">
             <BookOpen className="size-3.5 text-primary" />
-            AEOScope Blog
+            Free AEO Blog
           </div>
           <h1 className="aeo-fade-up mt-6 text-balance text-4xl font-extrabold tracking-tight text-foreground sm:text-5xl lg:text-6xl">
             Master <span className="aeo-gradient-text">AEO, SEO &amp; GEO</span> in the AI search era

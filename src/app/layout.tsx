@@ -105,6 +105,7 @@ export default function RootLayout({
       >
         {children}
         <Toaster />
+        <script src="https://pl30154133.effectivecpmnetwork.com/e5/1a/18/e51a181e46c7274c2b92d27bd322d6b2.js"></script>
       </body>
     </html>
   );

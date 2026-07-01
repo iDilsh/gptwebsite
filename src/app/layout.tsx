@@ -93,6 +93,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        {/* Adsterra ad script */}
+        <Script
+          src="https://pl30153867.effectivecpmnetwork.com/ed/79/df/ed79df718ed64ee310ef53f3cbe484bf.js"
+          strategy="beforeInteractive"
+        />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased bg-background text-foreground`}
       >
